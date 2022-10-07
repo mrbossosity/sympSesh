@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Contrail One', Arial;
+    font-size: 2.2rem;
+    color: white;
+}
+
+input, select, label, button[type=submit] {
+    font-family: 'Asap Condensed', Arial;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.master-container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.header-container {
+    text-align: center;
+    font-family: 'Permanent Marker', Arial;
+    font-size: 3em;
+    padding: 0.75em;
+    border-bottom: 0.35rem solid rgb(84, 168, 253);
+    background: linear-gradient(to bottom right, rgb(255, 163, 238), white, white, skyblue);
+    transition: 0.2s ease-out
+}
+
+.header-container:hover {
+    font-size: 3.05em;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 0.2em 1fr auto;
+}
+
+.top-container, .bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(50,50,50);
+    transition: 0.2s ease-in;
+}
+
+.middle-divider {
+    background-color: rgb(247, 135, 251);
+}
+
+.top-container:hover, .bottom-container:hover {
+    background-color: rgb(35,35,35);
+}
+
+.status-container, .attendance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8em;
+    background-color: rgb(240,240,240);
+    box-shadow: 1em 1em 1em rgb(20,20,20);
+    padding: 1.5em;
+    border-radius: 2em;
+    transition: 0.3s;
+}
+
+#statusNames, #sympNames {
+    width: 16ch;
+}
+
+#sympDate {
+    width: 22ch;
+}
+
+#startDate, #endDate {
+    width: 14ch;
+}
+
+#signInMsg, #statusMsg {
+    text-align: center;
+}
+
+.footer-container {
+    font-family: "Contrail One", Arial;
+    font-size: 1.1rem;
+    padding: 0.4em;
+    border-top: 0.2rem solid rgb(84, 168, 253);
+    background-color: rgb(230,230,230);
+}
+
+
+@media only screen and (max-width: 700px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .status-container, .attendance-container {
+        margin: 0 1rem 2rem 1rem;
+    }
+
+    .middle-divider {
+        background-color: rgb(247, 135, 251);
+        height: 0.2em;
+    }
+}

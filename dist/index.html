@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Sympoh Attendance</title>
+</head>
+<body>
+    <div class="master-container">
+        <div class="header-container">SympSesh</div>
+        <div class="main-container">
+            <div class="top-container">
+                <div>
+                    <h1>Sign In</h1>
+                </div>
+                <div>
+                    <form id="attendanceForm">
+                        <div class="attendance-container">
+                            <div>
+                                <input type="text" name="sympNames" id="sympNames" placeholder="Yaxin Duan" required>
+                            </div>
+                            <div>
+                                <input type="datetime-local" name="sympDate" id="sympDate" required>
+                            </div>  
+                            <div>
+                                <button type="submit">Submit</button>
+                            </div>
+                            <div id="signInMsg"></div>
+                        </div>
+                    </form>            
+                </div>
+            </div>
+            <div class="middle-divider"></div>
+            <div class="bottom-container">
+                <div>
+                    <h1>Sesh Status</h1>
+                </div>
+                <div>
+                    <form id="seshStatus">
+                        <div class="status-container">
+                            <div>
+                                <select name="statusNames" id="statusNames" required></select>
+                            </div>
+                            <div>
+                                <input type="date" name="startDate" id="startDate" required>    
+                                <label for="statusDate">Cycle Start</label>
+                            </div>
+                            <div>
+                                <input type="date" name="endDate" id="endDate" required>    
+                                <label for="statusDate">Cycle End</label>
+                            </div>
+                            <div>
+                                <button type="submit">Submit</button>    
+                            </div>
+                            <div id="statusMsg"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>  
+        <div class="footer-container">
+            Attend mandatory company and 3 seshes every two weeks!
+        </div>   
+    </div>
+
+    <script src="bundle.js"></script>
+</body>
+</html>
