@@ -15,11 +15,16 @@ const firebaseConfig = {
   };
 
 initializeApp(firebaseConfig)
-const db = getFirestore()
+
+// Constants
+const attendanceForm = document.querySelector('#attendanceForm'),
+      seshStatusForm = document.querySelector('#seshStatus'),
+      cycleStartInput = document.querySelector('#startDate'),
+      cycleEndInput = document.querySelector('#endDate'),
+      db = getFirestore();
 
 
 // Sign In form functionality
-const attendanceForm = document.querySelector('#attendanceForm')
 attendanceForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -49,7 +54,6 @@ async function logSesh(name, date) {
 
 
 // Sesh Status form functionality
-const seshStatusForm = document.querySelector('#seshStatus')
 seshStatusForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -76,7 +80,7 @@ async function calcStatus(name, cycleStart, cycleEnd) {
     }
 
     let msg1 = (seshCounter == 1) ? `You've attended 1 sesh this cycle.` : `You've attended ${seshCounter} seshes this cycle.`,
-        msg2 = (seshCounter < 3) ? `Please attend ${3 - seshCounter} more seshes!` : `Thanks for complying with the attendance policy!`,
+        msg2 = (seshCounter < 3) ? `Please attend ${3 - seshCounter} more!` : `Thanks for complying with the sesh policy!`,
         msgArea = document.querySelector("#statusMsg");
 
     msgArea.innerHTML = `${msg1}<br>${msg2}`
@@ -117,6 +121,13 @@ function capitalize(word) {
     let rest = word.slice(1);
     return `${first}${rest}`
 }
+
+cycleStartInput.addEventListener('change', function() {
+    let startDate = new Date(cycleStartInput.value)
+    let endDate = new Date();
+    endDate.setTime(startDate.getTime() + 1209600000)
+    cycleEndInput.value = endDate.toISOString().slice(0, 10)
+})
 
 document.addEventListener("DOMContentLoaded", function() {
     autofillNames()
